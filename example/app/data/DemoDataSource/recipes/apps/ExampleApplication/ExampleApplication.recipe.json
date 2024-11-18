@@ -8,7 +8,7 @@
       "type": "PLUGINS:dm-core-plugins/header/HeaderPluginConfig",
       "hideAbout": false,
       "hideUserInfo": false,
-      "uiRecipesList": ["Explorer", "Yaml"]
+      "uiRecipesList": ["View study", "Explorer", "Yaml"]
     },
     "plugin": "@development-framework/dm-core-plugins/header"
   },
@@ -22,6 +22,28 @@
       "name": "Yaml",
       "type": "CORE:UiRecipe",
       "plugin": "@development-framework/dm-core-plugins/yaml"
+    },
+    {
+      "name": "View study",
+      "type": "CORE:UiRecipe",
+      "config": {
+        "type": "PLUGINS:dm-core-plugins/view_selector/ViewSelectorConfig",
+        "childTabsOnRender": true,
+        "items": [
+          {
+            "type": "PLUGINS:dm-core-plugins/view_selector/ViewSelectorItem",
+            "label": "Study",
+            "viewConfig": {
+              "type": "CORE:ReferenceViewConfig",
+              "eds_icon": "change_history",
+              "recipe": "Tabs",
+              "scope": "study",
+              "showRefreshButton": true
+            }
+          }
+        ]
+      },
+      "plugin": "@development-framework/dm-core-plugins/view_selector/sidebar"
     }
   ]
 }
